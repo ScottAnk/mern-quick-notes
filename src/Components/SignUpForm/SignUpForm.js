@@ -9,7 +9,7 @@ export default class SignUpForm extends Component {
     error: '',
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault()
     alert(JSON.stringify(this.state))
   }
@@ -22,7 +22,7 @@ export default class SignUpForm extends Component {
   }
 
   render() {
-    const disable = this.state.password !== this.state.confirm || undefined
+    const disable = this.state.password !== this.state.confirm
     return (
       <div>
         <div className="form-container">
@@ -59,7 +59,7 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit" disable={disable}>
+            <button type="submit" disabled={disable}>
               Sign Up
             </button>
           </form>
