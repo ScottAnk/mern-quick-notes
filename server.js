@@ -21,6 +21,7 @@ app.use(require('./config/checkToken'))
 
 // configure routers
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/notes', require('./routes/api/notes'))
 app.get('/*', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })

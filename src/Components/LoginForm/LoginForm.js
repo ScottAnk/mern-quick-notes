@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { login } from '../../Utilities/users-service'
 
-export default function LoginForm({ setUser }) {
+import { login } from '../../Utilities/users-service'
+import { indexNotes } from '../../Utilities/notes-api'
+
+export default function LoginForm({ setUser, setNotes }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -23,9 +25,15 @@ export default function LoginForm({ setUser }) {
       // prepare formData to send to API
       const formData = { ...credentials }
 
+      // authenticate user
       const user = await login(formData)
+      const notes = await indexNotes()
+
+      // store user data locally
       setUser(user)
-    } catch {
+      setNotes(notes)
+    } catch (error) {
+      console.log(error)
       setError('Login failed - Try again later')
     }
   }
