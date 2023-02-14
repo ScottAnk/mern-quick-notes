@@ -3,10 +3,10 @@ require('./config/database')
 
 // require all of theMongoose models
 
-// const User = require('./models/User')
-// const Item = require('./models/Item')
-// const Category = require('./models/Category')
-// const Order = require('./models/Order')
+const User = require('./models/user')
+// const Item = require('./models/item')
+// const Category = require('./models/category')
+// const Order = require('./models/order')
 
 // local variables for holding retrieved documents
 let user, item, category, order
